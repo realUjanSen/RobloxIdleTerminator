@@ -91,16 +91,16 @@ The source code and icon are included in the folder you can download from GitHub
 How to build your own executable:
 
 1. Download the entire folder from GitHub. It will contain:
-
+```
    RobloxTerminatorTool
    ├── RobloxIdleTerminator.py
    └── rb.ico
-
+```
 2. Open RobloxTerminatorTool folder in File Explorer.
 
 3. Click on the address bar at the top, select all and type:
 
-   > cmd
+   ```> cmd```
    and press Enter. This will open Command Prompt in that folder.
 
 4. Run this command:
