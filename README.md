@@ -17,7 +17,7 @@ GitHub: https://github.com/realUjanSen/RobloxIdleTerminator
 
  What is this tool?
 
-A lightweight Windows executable that detects when Roblox has disconnected you from a game server 
+A lightweight Windows executable that calculates when Roblox has disconnected you from a game server 
 due to 20 minutes of inactivity, and then automatically closes the Roblox client if it stays 
 disconnected for at least 30 seconds.
 
@@ -60,14 +60,14 @@ authority buddies) a yearly fee so they can “protect” you with a meaningless
 pay, Microsoft would still keep showing warnings until I “built up enough reputation,” whatever 
 that means.
 
-How to bypass antivirus and run this tool:
+  How to bypass antivirus and run this tool:
 
-Download the project as a ZIP file from GitHub to avoid your browser falsely flagging the EXE as 
+1. Download the project as a ZIP file from GitHub to avoid your browser falsely flagging the EXE as 
 a virus or blocking the download.
 
-Extract the ZIP to a folder on your computer.
+2. Extract the ZIP to a folder on your computer. AV's wont delete it yet.
 
-When you run the EXE, click “Run anyway” if Windows shows a big red warning box. This is normal 
+3. When you run the EXE, click “Run anyway” if Windows shows a big red warning box. This is normal 
 for unsigned programs.
 
 If you don’t trust pre-built executables, you can always check the source code or build the EXE 
@@ -92,24 +92,53 @@ How to build your own executable:
    ├── RobloxIdleTerminator.py
    └── rb.ico
 
-2. Open the folder in File Explorer.
+2. Open RobloxTerminatorTool folder in File Explorer.
 
-3. Click on the address bar at the top, type:
+3. Click on the address bar at the top, select all and type:
 
    > cmd
-   > and press Enter. This will open Command Prompt in that folder.
+   and press Enter. This will open Command Prompt in that folder.
 
 4. Run this command:
 
    > pyinstaller --noconsole --onefile --icon=rb.ico RobloxIdleTerminator.py
 
-5. After the build is complete, open the `dist` folder created inside the same directory. 
+5. After the build is complete, open the 'dist' folder created inside the same directory. 
    You will see:
 
+	RobloxIdleTerminatorTool
+	│   rb.ico
+	│   RobloxIdleTerminator.py
+	│   RobloxIdleTerminator.spec
+	│
+	├───build
+	│   └───RobloxIdleTerminator
+	│       │   Analysis-00.toc
+	│       │   base_library.zip
+	│       │   EXE-00.toc
+	│       │   PKG-00.toc
+	│       │   PYZ-00.pyz
+	│       │   PYZ-00.toc
+	│       │   RobloxIdleTerminator.pkg
+	│       │   warn-RobloxIdleTerminator.txt
+	│       │   xref-RobloxIdleTerminator.html
+	│       │
+	│       └───localpycs
+	│               pyimod01_archive.pyc
+	│               pyimod02_importers.pyc
+	│               pyimod03_ctypes.pyc
+	│               pyimod04_pywin32.pyc
+	│               struct.pyc
+	│
+	└───dist
+	        RobloxIdleTerminator.exe
+
+
+Open this file in the following directory:
    dist
    └── RobloxIdleTerminator.exe
 
-6. Double-click the .exe file to run it.
+6. Double-click the .exe file to run it.narendra pur college indraneel, ac , travarsa
 
 
  For Mac and Linux users:
