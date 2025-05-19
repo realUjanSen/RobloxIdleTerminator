@@ -107,7 +107,7 @@ How to build your own executable:
 
    > pyinstaller --noconsole --onefile --icon=rb.ico RobloxIdleTerminator.py
 
-5. After the build is complete, open the 'dist' folder created inside the same directory. 
+5. After the build is complete
    You will see:
 ```
 	RobloxIdleTerminatorTool
