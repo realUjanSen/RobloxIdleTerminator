@@ -55,8 +55,8 @@ the risks of prolonged overheating and resource hogging.
 ⚠️ Big Scary Windows Warning (Thanks, Microsoft)
 
 When you try to run this program, Windows will probably freak out and throw a giant red box at you 
-saying “Unknown Publisher” or “This software might harm your computer.” Why? Because Microsoft 
-wants me to cough up hundreds of dollars a year for a code signing certificate-just to make that 
+saying “Unknown Publisher” or “This application might cause damage to your device.” Why? Because 
+Microsoft wants me to cough up hundreds of dollars a year for a code signing certificate-just to make that 
 warning disappear-even for free, open-source projects like this.
 
 I’m not a company. I’m not selling anything. I’m not about to pay Microsoft (and their certificate 
