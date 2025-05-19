@@ -8,8 +8,11 @@ ______      _     _             _____    _ _        _____                   _   
                                                                                                         
                                                                                                         
 Version: 1.0.0
+
 Released: May 19, 2025
+
 Author: Ujan Sen
+
 GitHub: https://github.com/realUjanSen/RobloxIdleTerminator
 
 
