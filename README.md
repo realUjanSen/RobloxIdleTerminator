@@ -109,7 +109,7 @@ How to build your own executable:
 
 5. After the build is complete, open the 'dist' folder created inside the same directory. 
    You will see:
-
+```
 	RobloxIdleTerminatorTool
 	│   rb.ico
 	│   RobloxIdleTerminator.py
@@ -137,11 +137,12 @@ How to build your own executable:
 	└───dist
 	        RobloxIdleTerminator.exe
 
-
+```
 Open this file in the following directory:
-   dist
+```
+dist
    └── RobloxIdleTerminator.exe
-
+```
 6. Double-click the .exe file to run it.narendra pur college indraneel, ac , travarsa
 
 
