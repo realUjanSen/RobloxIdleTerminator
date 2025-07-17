@@ -19,21 +19,21 @@ GitHub: https://github.com/realUjanSen/RobloxIdleTerminator
 
 
 
- What is this tool?
+# What is this tool?
 
 A lightweight Windows executable that calculates when Roblox has disconnected you from a game server 
 due to 20 minutes of inactivity, and then automatically closes the Roblox client if it stays 
 disconnected for at least 30 seconds.
 
 
- Why did I make this?
+# Why did I make this?
 
 Roblox leaves the client running and using resources after disconnecting for inactivity, 
 Most Roblox users don’t have Python installed and shouldn’t need to. 
 No official or community solution existed-so I built this to fill that gap.
 
 
- Why you might need this tool:
+# Why you might need this tool:
 
 Many Roblox players go AFK (away from keyboard) mid-game and never return. While Roblox will 
 disconnect you from the server after about 20 minutes of inactivity, the Roblox client continues 
@@ -64,7 +64,7 @@ authority buddies) a yearly fee so they can “protect” you with a meaningless
 pay, Microsoft would still keep showing warnings until I “built up enough reputation,” whatever 
 that means.
 
-  How to bypass antivirus and run this tool:
+#  How to bypass antivirus and run this tool:
 
 1. Download the project as a ZIP file from GitHub to avoid your browser falsely flagging the EXE as 
 a virus or blocking the download.
