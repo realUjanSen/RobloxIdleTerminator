@@ -11,7 +11,7 @@ IDLE_THRESHOLD = 1230  # 20.5 minutes
 UPDATE_INTERVAL = 1000  # ms
 LOG_WINDOW_SIZE = 2     # Show only 2 log lines
 
-# --- GLOBALS ---
+# --- GLOBALS ----
 last_activity_time = time.time()
 running = False
 keyboard_listener = None
