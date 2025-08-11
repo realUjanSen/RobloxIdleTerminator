@@ -143,7 +143,7 @@ Open this file in the following directory:
 dist
    └── RobloxIdleTerminator.exe
 ```
-6. Double-click the .exe file to run it.narendra pur college indraneel, ac , travarsa
+6. Double-click the .exe file to run it.
 
 
  For Mac and Linux users:
