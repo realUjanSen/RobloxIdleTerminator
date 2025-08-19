@@ -5,11 +5,14 @@ import tkinter as tk
 from tkinter import ttk
 from pynput import keyboard, mouse
 import win32gui
+import pystray
+from PIL import Image, ImageDraw
 
 # --- CONFIG ---
 IDLE_THRESHOLD = 1230  # 20.5 minutes
 UPDATE_INTERVAL = 1000  # ms
 LOG_WINDOW_SIZE = 2     # Show only 2 log lines
+AUTO_START_MONITORING = True  # Automatically start/stop monitoring when Roblox starts/stops
 
 # --- GLOBALS ----
 last_activity_time = time.time()
@@ -17,6 +20,54 @@ running = False
 keyboard_listener = None
 mouse_listener = None
 is_dark_mode = True  # Start in dark mode
+roblox_was_running = False  # Track previous Roblox state
+tray_icon = None
+root = None
+
+# --- SYSTEM TRAY FUNCTIONS ---
+def create_tray_icon():
+    # Try to use the existing rb.ico file, fallback to generated icon
+    try:
+        image = Image.open("rb.ico")
+        return image
+    except:
+        # Fallback: Create a simple icon for the system tray
+        image = Image.new('RGB', (64, 64), color='red')
+        draw = ImageDraw.Draw(image)
+        draw.rectangle([16, 16, 48, 48], fill='white')
+        draw.text((20, 25), "R", fill='black')
+        return image
+
+def show_window():
+    global root
+    if root:
+        root.deiconify()
+        root.lift()
+        root.attributes("-topmost", True)
+        root.attributes("-topmost", False)
+
+def hide_window():
+    global root
+    if root:
+        root.withdraw()
+
+def quit_application():
+    global tray_icon, root
+    stop_monitoring()
+    if tray_icon:
+        tray_icon.stop()
+    if root:
+        root.quit()
+
+def on_window_close():
+    # Hide to tray instead of closing
+    hide_window()
+    return "break"  # Prevent default close behavior
+
+def on_window_iconify(event):
+    # Hide to tray when minimized
+    if event.widget == root:
+        hide_window()
 
 # --- COLOR SCHEMES ---
 DARK = {
@@ -77,6 +128,15 @@ root.title("Roblox Idle Monitor")
 root.geometry("233x107")
 root.resizable(True, True)
 root.attributes("-alpha", 0.7)  # Default alpha is now 0.7
+
+# Set up window close behavior (hide to tray instead of quit)
+root.protocol("WM_DELETE_WINDOW", on_window_close)
+
+# Set up minimize behavior (hide to tray when minimized)
+root.bind("<Unmap>", on_window_iconify)
+
+# Start minimized to tray
+root.withdraw()
 
 # Set custom icon
 try:
@@ -261,7 +321,31 @@ dark_mode_btn.pack(side='left', padx=2)
 
 apply_theme()  # Set initial theme
 
-# Start monitoring by default
-start_monitoring()
+# Don't start monitoring by default if auto-start is enabled
+if not AUTO_START_MONITORING:
+    start_monitoring()
+else:
+    # Check initial Roblox state
+    roblox_was_running = is_roblox_running() is not None
+
+# Create system tray icon
+def setup_tray():
+    global tray_icon
+    image = create_tray_icon()
+    
+    menu = pystray.Menu(
+        pystray.MenuItem("Show Window", show_window, default=True),
+        pystray.MenuItem("Start Monitoring", start_monitoring),
+        pystray.MenuItem("Stop Monitoring", stop_monitoring),
+        pystray.Menu.SEPARATOR,
+        pystray.MenuItem("Quit", quit_application)
+    )
+    
+    tray_icon = pystray.Icon("RobloxIdleMonitor", image, "Roblox Idle Monitor", menu)
+    
+    # Run tray icon in a separate thread
+    threading.Thread(target=tray_icon.run, daemon=True).start()
+
+setup_tray()
 update_gui()
 root.mainloop()
